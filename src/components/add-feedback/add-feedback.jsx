@@ -1,10 +1,8 @@
 import './add-feedback.css';
-import WbIncandescentOutlinedIcon from '@mui/icons-material/WbIncandescentOutlined';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
-function AddFeedback() {
+function AddFeedback(props) {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [sortByValue, setSortByValue] = useState('Most Upvotes');
 
@@ -18,11 +16,17 @@ function AddFeedback() {
         var splitString = originalString.split('<');
         var result = splitString[0];
         setSortByValue(result);
+        
     }
+    useEffect(()=>{
+      props.changeSortByFunction(sortByValue);
+    },[sortByValue])
+
+    
    
   return (
     <div className="add-feedback-div">
-        <button className='sort-by' onClick={rotateDropdown}>
+        <button className='sort-by' onClick={rotateDropdown} >
             Sort by: <span>{sortByValue}</span>
             <svg className={openDropdown ?   'active':undefined } width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />

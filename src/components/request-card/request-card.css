@@ -25,7 +25,8 @@
     color: var(--blue);
     padding: 6px 16px;
     border-radius: 8px;
-    cursor: pointer;
+    cursor:default;
+    user-select: none;
     font-size: 14px;
     font-weight: 600;
     max-height: 32px;

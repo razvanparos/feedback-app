@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './add-feedback.css';
 import { useEffect, useState } from 'react';
 
@@ -38,7 +39,7 @@ function AddFeedback(props) {
             <p onClick={handleChangeSortBy} className='drop-item'>Most Comments<svg className={`${sortByValue==='Most Comments'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
             <p onClick={handleChangeSortBy} className='drop-item'>Least Comments<svg className={`${sortByValue==='Least Comments'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
         </div>
-        <button className='add-feedback-btn'>+ Add Feedback</button>
+        <Link to={'/feedback-add'} className='add-feedback-btn'>+ Add Feedback</Link>
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.feedback-page-add{
+    background-color: var(--purple);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+   
+}
+.feedback-add-page-div{
+    height: 100%;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+}
+#root{
+    height: 100vh;
+}

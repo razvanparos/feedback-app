@@ -38,6 +38,7 @@
     color: var(--grey);
     border: 0px;
     text-align: center;
+    text-decoration: none;
 }
 .add-feedback-btn:hover{
     background-color:#c465ec ;

@@ -1,20 +1,17 @@
 import './home-board.css';
 import IconHamburger from '../../assets/hamburger-open.svg'
 import IconClose from '../../assets/icon-close.svg'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 function HomeBoard() {
     const [sideBarOpen,setSideBarOpen]= useState(false)
     const [activeFilter,setActiveFilter]= useState('All')
+   
+   
+  function toggleSideBar() {
+    setSideBarOpen(prevState => !prevState);
+}
 
-    function toggleSideBar(){
-        if(sideBarOpen===false){
-            window.scrollTo({top: 0, behavior: 'smooth'})
-            setSideBarOpen(true)
-        }else {        
-          setSideBarOpen(false)
-        }
-    }
     function handleFilterChange(e){
       setActiveFilter(e.target.innerHTML)
     }
@@ -30,7 +27,7 @@ function HomeBoard() {
         <img className={`${sideBarOpen ? '' : 'hidden'}`} src={IconClose} alt="" />
       </button>
 
-      <div className={`side-bar-div ${sideBarOpen ? 'side-bar-show' : 'side-bar-hide'}`}> 
+      <div className={`side-bar-div ${sideBarOpen ? 'side-bar-show' : 'side-bar-hide'}`} > 
         <div className={`side-bar-content ${sideBarOpen ? 'side-bar-content-show' : 'side-bar-content-hide'}`}> 
             <ul className='filters'>
                 <li className={`${activeFilter === 'All' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>All</li>

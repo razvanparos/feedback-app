@@ -22,28 +22,28 @@
 }
 .side-bar-div{
     background-color: rgba(0,0,0,.5);
-    position: absolute;
+    position: fixed;
     width: 100%;
-    top: 100%;
+    top: 73px; 
     bottom: 0;
-    height: 2700px;
     transition: .2s ease-in-out;
     opacity: 1;
     z-index: 2;
     right: 0px;
     display: flex;
     justify-content: end;
-    
+ 
 }
 .side-bar-show{
     opacity: 1;
+    pointer-events:visible;
 }
 .side-bar-hide{
     opacity: 0;
     pointer-events: none;
 }
 .side-bar-content{
-    position: absolute;
+    position:absolute;
     background-color: white;
     width: 85%;
     max-width: 272px;
@@ -51,10 +51,11 @@
     transition: 0.2s;
     padding: 48px;
     z-index: 3;
-    overflow: hidden;
+
 }
 .side-bar-content-show{
     right: 0;
+    pointer-events:all;
    
 }
 .side-bar-content-hide{

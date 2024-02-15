@@ -1,0 +1,26 @@
+.feedback-individual-div{
+    padding: 24px 24px;
+}
+.comment-cards-div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    margin-top: 80px;
+}
+.feedback-individual-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.edit-feedback{
+    padding: 11px 24px;
+    font-size: 13px;
+    min-width: 0;
+    background-color: var(--blue);
+    color: var(--grey);
+    font-weight: 700;
+    border-radius: 10px;
+}
+.feedback-individual-main{
+    padding: 24px;
+}

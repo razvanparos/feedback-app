@@ -1,0 +1,12 @@
+.reply-card-div{
+    border-left: 1px solid rgba(140, 146, 179, 0.205);
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.reply-to{
+    color: var(--purple);
+    font-weight: 700;
+    margin-right: 4px;
+}

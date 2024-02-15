@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import './request-card.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function RequestCard(props) {
+  const navigate = useNavigate();
   const [upvoted, setUpvoted] = useState(props.upvoted)
   const [votes, setVotes] = useState(props.upvotes)
+  const [isNotClickable, setIsNotClickable] = useState(props.notClickable)
 
   function handleUpvoted(){
    props.upvoteFunction(props.id);
@@ -15,13 +18,20 @@ function RequestCard(props) {
     setVotes(props.upvotes)
   },[props.upvoted])
 
-    
+  function navigateToPost(){
+    navigate(`/feedback/${props.id}`);
+    document.body.scrollTop = 0;
+  }
+
 
   return (
     <div className="request-card-div">
+      <div onClick={navigateToPost} className={`card ${isNotClickable ? 'not-clickable':'clickable'}`}>
         <p className='request-card-title'>{props.title}</p>
         <p className='request-card-description'>{props.description}</p>
         <p className='request-card-category'>{props.category}</p>
+      </div>
+        
         <div className='request-card-bottom'>
             <div className={`upvotes-count ${upvoted === true ? 'voted':''}`} onClick={handleUpvoted}>
               <svg className={`${upvoted === true ? 'voted-arrow':''}`} width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 6l4-4 4 4" stroke="#4661E6" strokeWidth="2" fill="none" fillRule="evenodd"></path></svg>

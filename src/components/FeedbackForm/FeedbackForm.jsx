@@ -54,12 +54,12 @@ export default function FeedbackForm(props) {
           <svg className={`category-dropdown-arrow ${openDropdown ? 'rotate':''}`} width='10' height='7' xmlns='http://www.w3.org/2000/svg'>
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />
             </svg>
-          <div className={`dropdown-feedback-form ${openDropdown?'':'hidden'} `}>
-              <p onClick={handleChangeCategory} className='drop-item'>Feature<svg className={``} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
-              <p onClick={handleChangeCategory} className='drop-item'>UI<svg className={``} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
-              <p onClick={handleChangeCategory} className='drop-item'>UX<svg className={``} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
-              <p onClick={handleChangeCategory} className='drop-item'>Enhancement<svg className={``} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
-              <p onClick={handleChangeCategory} className='drop-item'>Bug<svg className={``} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
+          <div className={`dropdown-feedback-form ${openDropdown?'dropdown-feedback-form-open':'dropdown-feedback-form-closed'} `}>
+              <p onClick={handleChangeCategory} className='drop-item'>Feature<svg className={`${categoryValue==='Feature'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
+              <p onClick={handleChangeCategory} className='drop-item'>UI<svg className={`${categoryValue==='UI'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
+              <p onClick={handleChangeCategory} className='drop-item'>UX<svg className={`${categoryValue==='UX'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
+              <p onClick={handleChangeCategory} className='drop-item'>Enhancement<svg className={`${categoryValue==='Enhancement'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
+              <p onClick={handleChangeCategory} className='drop-item'>Bug<svg className={`${categoryValue==='Bug'?'':'hidden'}`} xmlns="http://www.w3.org/2000/svg" width="13" height="11"><path fill="none" stroke="#AD1FEA" strokeWidth="2" d="M1 5.233L4.522 9 12 1"></path></svg></p>
           </div>
         </div>
        

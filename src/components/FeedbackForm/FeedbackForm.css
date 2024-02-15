@@ -25,14 +25,12 @@
 .title-text-area{
   width: 100%;
   padding: 13px 24px;
-  background-color: var(--grey-light);
+  background-color: rgba(128, 128, 128, 0.068);
   color: var(--grey-darker);
   resize: none;
   border-radius: 5px;
   font-size: var(--body-s);
   border: 0px;
-
-  /* border: 1px solid red; */
 }
 .title-text-area:focus{
   outline: 1px solid var(--grey-darker);
@@ -53,12 +51,17 @@
   transform: rotate(180deg);
 }
 .dropdown-feedback-form {
-  /* border: 1px solid red; */
   position: absolute;
   background-color: white;
   width: 100%;
   top: 110%;
   left: 0px;
   box-shadow: 0 10px 40px -7px rgba(55,63,104,.35);
-  
+  transition: 0.2s;
+}
+.dropdown-feedback-form-open{
+  opacity: 1;
+}
+.dropdown-feedback-form-closed{
+  opacity: 0;
 }

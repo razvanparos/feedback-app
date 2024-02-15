@@ -22,8 +22,9 @@ function Home() {
   useEffect(() => {
     localStorage.setItem('requestData', JSON.stringify(requestData)); 
   }, [requestData]);
+  
 
-  console.log(Data.productRequests);
+  // console.log(Data.productRequests);
 
   function upvoteFunction(id){
     let storedData = JSON.parse(localStorage.getItem('requestData'));
@@ -83,6 +84,7 @@ function Home() {
             commentsNr={request.comments.length}
             upvoted={request.upvoted}
             upvoteFunction={upvoteFunction}
+            notClickable={false}
             />
            
           );

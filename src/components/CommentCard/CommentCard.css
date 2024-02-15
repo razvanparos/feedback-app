@@ -1,0 +1,86 @@
+.comment-card-div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    padding-bottom: 24px;
+}
+.comment-top{
+    display: flex;
+    justify-content: space-between;
+}
+.user-image{
+    border-radius:50%;
+    width: 40px;
+    height: 40px;
+}
+.comment-top-user{
+    display: flex;
+    column-gap: 12px;
+}
+.user-name{
+    color: var(--grey-darker);
+    line-height: 13px;
+    font-size: var(--h4);
+    letter-spacing: var(--h4-ls);
+    font-weight: bold;
+}
+.user-username{
+    color: var(--grey-dark);
+    line-height: 13px;
+    font-size: var(--h4);
+    letter-spacing: var(--h4-ls);
+    margin-top: 4px;
+   
+}
+.comment-content{
+    color: var(--grey-dark);
+    font-size: var(--body-s);
+    line-height: var(--body-s-lh);
+}
+.comment-reply-btn{
+    cursor: pointer;
+    color: var(--blue);
+    font-weight: 600;
+}
+.comment-border-bottom{
+    border-bottom: 1px solid rgba(140,146,179,.25);
+}
+.post-reply-div{
+    display: flex;
+    justify-content: space-between;
+    transition: 0.2s;
+}
+.post-reply-div-open{
+    opacity: 1;
+    height: 80px;
+}
+.post-reply-div-close{
+    opacity: 0;
+    height: 0px;
+}
+.post-reply-div textarea{
+    width: 200px;
+    position: relative;
+    padding: 8px 16px;
+    height: 80px;
+    border: 0px;
+    resize: none;
+}
+.post-reply-div textarea:focus{
+    border: 1px solid var(--grey-darker);
+    outline: none;
+    border-radius: 10px;
+}
+
+.post-reply-btn{
+    padding: 11px 24px;
+    background-color: var(--purple);
+    color: var(--grey);
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    max-height: 41px;
+}

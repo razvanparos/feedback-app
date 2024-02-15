@@ -47,33 +47,41 @@
 }
 .post-reply-div{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     justify-content: space-between;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 .post-reply-div-open{
     opacity: 1;
-    height: 80px;
+    height: 100px;
 }
 .post-reply-div-close{
     opacity: 0;
     height: 0px;
 }
 .post-reply-div textarea{
-    width: 200px;
+    width: 100%;
     position: relative;
     padding: 8px 16px;
-    height: 80px;
+    /* height: 120px; */
     border: 0px;
     resize: none;
+    background-color:transparent ;
+    margin-bottom: 12px;
 }
 .post-reply-div textarea:focus{
-    border: 1px solid var(--grey-darker);
+    box-shadow: 0px 0px 0px 1px var(--grey-darker);
     outline: none;
     border-radius: 10px;
 }
 
 .post-reply-btn{
-    padding: 11px 24px;
+    max-width: 224px;
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 13px;
     background-color: var(--purple);
     color: var(--grey);
     font-weight: 700;

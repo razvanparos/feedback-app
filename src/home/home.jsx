@@ -5,13 +5,17 @@ import React, { useState,useEffect } from 'react';
 import Data from '../data.json'
 import RequestCard from '../components/request-card/request-card';
 import collect from 'collect.js';
+import NoResultsImg from '../assets/illustration-empty.bcc93d24.svg'
+import { Link } from 'react-router-dom';
 
 
 function Home() {
-  const [requestData, setRequestData] = useState(() => {
+    const [filter, setFilter]=useState('all');
+    const [requestData, setRequestData] = useState(() => {
     const storedData = localStorage.getItem('requestData');
     return storedData ? JSON.parse(storedData) : Data.productRequests;
   });
+  const [requestCardCount, setRequestCardCount]=useState(0);
   useEffect(() => {
     localStorage.setItem('requestData', JSON.stringify(requestData)); 
     let storedData = JSON.parse(localStorage.getItem('requestData'));
@@ -64,16 +68,51 @@ function Home() {
       setRequestData(sorted.all());
     }
   }
+  function filterChange(filter2){
+    setFilter(filter2.toLowerCase());  
+    console.log(filter2.toLowerCase())
+  }
+  useEffect(() => {
+    let count = 0;
+    requestData.forEach(request => {
+      if (filter === 'all' || request.category === filter) {
+        count++;
+      }
+    });
+    setRequestCardCount(count);
+  }, [filter]);
+
+
 
   return (
     <div className="home-div">
-      <HomeBoard/>
+      <HomeBoard 
+        filterChange={filterChange}
+      />
       <AddFeedback
         changeSortByFunction={changeSortByFunction}
+        count={requestCardCount}
       />
       <div className='requests-div'>
         {requestData.map((request)=>{
-          return(
+          if(filter==='all'){
+            return(
+            <RequestCard
+            key={request.id}
+            id={request.id}
+            title={request.title}
+            description={request.description}
+            category={request.category}
+            upvotes={request.upvotes}
+            commentsNr={request.comments.length}
+            upvoted={request.upvoted}
+            upvoteFunction={upvoteFunction}
+            notClickable={false}
+            />
+          );
+          }
+          if(request.category===filter){
+            return(
             <RequestCard
             key={request.id}
             id={request.id}
@@ -88,7 +127,14 @@ function Home() {
             />
            
           );
+          }
         })}
+      </div>
+      <div className={`no-results ${requestCardCount===0 ? '':'hidden'}`}>
+          <img src={NoResultsImg} alt="" />
+          <p>There is no feedback yet.</p>
+          <p className='got-suggestion'>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+          <Link to={'/feedback-add'} className='add-feedback-btn'>+ Add Feedback</Link>
       </div>
     </div>
   );

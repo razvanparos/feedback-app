@@ -19,7 +19,7 @@ export default function FeedbackForm(props) {
     var originalString = e.target.innerHTML;
     var splitString = originalString.split('<');
     var result = splitString[0];
-    setCategoryValue(result);
+    setCategoryValue(result.toLowerCase());
 }
   function handleTitleChange(e){
     setTitleValue(e.target.value)

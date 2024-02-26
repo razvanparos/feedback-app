@@ -3,9 +3,29 @@
 }
 .requests-div{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 32px;
     row-gap: 60px;
+}
+.no-results{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 24px;
+}
+.got-suggestion{
+    text-align: center;
+    color: var(--grey-dark);
+    max-width: 410px;
+    font-size: var(--body);
+    line-height: var(--body-lh);
+    padding: 0px 48px;
+}
+.hidden{
+    display: none;
 }

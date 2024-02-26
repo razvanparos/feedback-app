@@ -5,10 +5,13 @@ import GoBack from '../components/GoBack/GoBack';
 import RequestCard from '../components/request-card/request-card';
 import { useNavigate } from 'react-router-dom';
 import CommentCard from '../components/CommentCard/CommentCard';
-import { useEffect } from 'react';
 import Data from '../data.json'
+import { useState } from 'react';
+
 
 function FeedbackIndividual() {
+    const [charactersLeft, setCharactersLeft]=useState(255);
+    const [newComment, setNewComment]=useState('');
     const navigate = useNavigate();
     const {feedbackId}  = useParams();
     const storedData = JSON.parse(localStorage.getItem('requestData'));
@@ -58,6 +61,31 @@ function FeedbackIndividual() {
         navigate(`/feedback/${parseInt(feedbackId)}`);
       }
 
+      function handleCommentChange(e){
+        setNewComment(e.target.value)
+        let length = e.target.value.length;
+        setCharactersLeft(255-length);
+      }
+      function handleCommentPost(){
+       
+        setNewComment('');
+        setCharactersLeft(255);
+        let data = JSON.parse(localStorage.getItem('requestData'))
+        const collection = collect(data);
+        const filtered = collection.where('id', parseInt(feedbackId));
+        const updateData = filtered.all()[0];
+        const collection2 = collect(updateData.comments);
+        const max = collection2.max('id');
+        let newCommentt={
+          id: max+1,
+          content: newComment,
+          user:Data.currentUser
+        }
+        collection2.all().push(newCommentt);
+        localStorage.setItem('requestData', JSON.stringify(data)); 
+        navigate(`/feedback/${parseInt(feedbackId)}`);
+      }
+
   return (
     <div className='feedback-individual-div'>
       <div className='feedback-individual-top'>
@@ -93,6 +121,14 @@ function FeedbackIndividual() {
               />
             );
           })}
+        </div>
+        <div className='add-comment-div'>
+          <h3 className='add-comment'>Add Comment</h3>
+          <textarea type="text" placeholder='Type your comment here' maxLength={255} onChange={handleCommentChange} value={newComment}/>
+          <div className='add-comment-div-bottom'>
+            <p className='characters-left'>{charactersLeft} characters left</p>
+            <button className='post-reply-btn' onClick={handleCommentPost}>Post Comment</button>
+          </div>
         </div>
       </div>
         

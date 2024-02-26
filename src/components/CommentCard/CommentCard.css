@@ -60,19 +60,19 @@
 .post-reply-div-close{
     opacity: 0;
     height: 0px;
+    pointer-events: none;
 }
 .post-reply-div textarea{
     width: 100%;
     position: relative;
     padding: 8px 16px;
-    /* height: 120px; */
     border: 0px;
     resize: none;
     background-color:transparent ;
     margin-bottom: 12px;
 }
 .post-reply-div textarea:focus{
-    box-shadow: 0px 0px 0px 1px var(--grey-darker);
+    box-shadow: 0px 0px 0px 1px rgb(121, 121, 218);
     outline: none;
     border-radius: 10px;
 }
@@ -91,4 +91,5 @@
     text-align: center;
     border-radius: 10px;
     max-height: 41px;
+    transition: 0.3s;
 }

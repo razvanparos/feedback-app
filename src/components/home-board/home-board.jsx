@@ -1,20 +1,21 @@
 import './home-board.css';
 import IconHamburger from '../../assets/hamburger-open.svg'
 import IconClose from '../../assets/icon-close.svg'
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 
-function HomeBoard() {
+function HomeBoard(props) {
     const [sideBarOpen,setSideBarOpen]= useState(false)
     const [activeFilter,setActiveFilter]= useState('All')
    
    
   function toggleSideBar() {
     setSideBarOpen(prevState => !prevState);
-}
+  }
 
-    function handleFilterChange(e){
-      setActiveFilter(e.target.innerHTML)
-    }
+  function handleFilterChange(e){
+    setActiveFilter(e.target.innerHTML)
+    props.filterChange(e.target.innerHTML)
+  }
 
   return (
     <div className={`home-board-div ${sideBarOpen===true ?'':''}`}>
@@ -35,7 +36,7 @@ function HomeBoard() {
                 <li className={`${activeFilter === 'UX' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>UX</li>
                 <li className={`${activeFilter === 'Bug' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Bug</li>
                 <li className={`${activeFilter === 'Feature' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Feature</li>
-                <li className={`${activeFilter === 'Enhancements' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Enhancements</li>        
+                <li className={`${activeFilter === 'Enhancement' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Enhancement</li>        
             </ul>
             
             <div className='roadmap-div'>

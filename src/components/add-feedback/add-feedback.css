@@ -90,3 +90,20 @@
 .drop-item:last-child{
     border: 0px;
 }
+.votes-count-div{
+    display: flex;
+    column-gap: 12px;
+}
+.p-count{
+    color: #fff;
+    font-size: var(--h3);
+    font-weight: bold;
+}
+.hidden{
+    display: none;
+}
+@media (max-width:500px){
+    .p-count{
+        display: none;
+    }
+}

@@ -131,8 +131,8 @@ a{
 .roadmap-list li:nth-child(3) .bullet {
    background-color: #62bcfa; 
 }
-@media (min-width:760px) {
+/* @media (min-width:760px) {
     .side-bar-div{
         display: none;
     }
-}
+} */

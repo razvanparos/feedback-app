@@ -33,6 +33,9 @@
   font-size: var(--body-s);
   border: 0px;
 }
+.area-error{
+  outline: 1px solid red;
+}
 .title-text-area:focus{
   outline: 1px solid var(--grey-darker);
 }

@@ -6,7 +6,7 @@ export default function GoBack({ colour }) {
   const navigate = useNavigate();
 
   const navigateBack = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   return (

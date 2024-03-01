@@ -85,12 +85,16 @@ function FeedbackIndividual() {
         localStorage.setItem('requestData', JSON.stringify(data)); 
         navigate(`/feedback/${parseInt(feedbackId)}`);
       }
+      function navigateToEdit(){
+        navigate(`/feedback/edit/${parseInt(feedbackId)}`);
+        document.body.scrollTop = 0;
+      }
 
   return (
     <div className='feedback-individual-div'>
       <div className='feedback-individual-top'>
          <GoBack/>
-         <button className='edit-feedback'>Edit Feedback</button>
+         <button className='edit-feedback' onClick={navigateToEdit}>Edit Feedback</button>
       </div>
       <div className='feedback-individual-main'>
         <RequestCard

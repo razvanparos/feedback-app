@@ -22,6 +22,9 @@ function CommentCard(props) {
     setReplyText('');
     openReplyBox();
   }
+  function postReplyReply(text,to){
+    props.updateComments(text,to,replyId);
+  }
     
   return (
     <div className={`comment-card-div ${props.repliesNr === undefined ? 'comment-border-bottom' : ''}`}>
@@ -47,6 +50,7 @@ function CommentCard(props) {
               replyContent={reply.content}
               replyTo={reply.replyingTo}
               replyUser={reply.user}
+              postReplyReply={postReplyReply}
             />
           );
         })}

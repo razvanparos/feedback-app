@@ -98,16 +98,16 @@ function Home() {
           if(filter==='all'){
             return(
             <RequestCard
-            key={request.id}
-            id={request.id}
-            title={request.title}
-            description={request.description}
-            category={request.category}
-            upvotes={request.upvotes}
-            commentsNr={request.comments.length}
-            upvoted={request.upvoted}
-            upvoteFunction={upvoteFunction}
-            notClickable={false}
+              key={request.id}
+              id={request.id}
+              title={request.title}
+              description={request.description}
+              category={request.category}
+              upvotes={request.upvotes}
+              commentsNr={request.comments.length}
+              upvoted={request.upvoted}
+              upvoteFunction={upvoteFunction}
+              notClickable={false}
             />
           );
           }

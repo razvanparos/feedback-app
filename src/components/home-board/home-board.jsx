@@ -18,6 +18,7 @@ function HomeBoard(props) {
   }
 
   return (
+    <div className='desktop-div'>
     <div className={`home-board-div ${sideBarOpen===true ?'':''}`}>
       <div className='home-board-left'>
         <h2>Frontend Mentor</h2>
@@ -52,6 +53,15 @@ function HomeBoard(props) {
             </div>
         </div>
       </div>
+    </div>
+      <ul className='filters filters-desktop'>
+        <li className={`${activeFilter === 'All' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>All</li>
+        <li className={`${activeFilter === 'UI' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>UI</li>
+        <li className={`${activeFilter === 'UX' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>UX</li>
+        <li className={`${activeFilter === 'Bug' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Bug</li>
+        <li className={`${activeFilter === 'Feature' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Feature</li>
+        <li className={`${activeFilter === 'Enhancement' ? 'filter-active' : 'non-active'}`} onClick={handleFilterChange}>Enhancement</li>        
+      </ul>
     </div>
   );
 }

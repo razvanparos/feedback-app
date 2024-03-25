@@ -107,3 +107,9 @@
         display: none;
     }
 }
+@media(min-width:1024px){
+    .add-feedback-div{
+        border-radius: 10px;
+        height: 70px;
+    }
+}

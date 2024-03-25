@@ -89,6 +89,7 @@ function Home() {
       <HomeBoard 
         filterChange={filterChange}
       />
+      <div className='desktop-width'>
       <AddFeedback
         changeSortByFunction={changeSortByFunction}
         count={requestCardCount}
@@ -135,6 +136,7 @@ function Home() {
           <p>There is no feedback yet.</p>
           <p className='got-suggestion'>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
           <Link to={'/feedback-add'} className='add-feedback-btn'>+ Add Feedback</Link>
+      </div>
       </div>
     </div>
   );

@@ -9,14 +9,17 @@ import FeedbackEdit from './FeedbackEdit/FeedbackEdit';
 
 function App() {
   return (
-    <Router>
+    <div className='app-div'>
+       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/feedback-add" element={<FeedbackAddPage />} />
           <Route path="/feedback/:feedbackId" element={<FeedbackIndividual />} />
           <Route path="/feedback/edit/:feedbackId" element={<FeedbackEdit />} />
         </Routes>
-    </Router>
+      </Router>
+    </div>
+   
     
   );
 }

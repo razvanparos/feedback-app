@@ -165,3 +165,17 @@
       /* --body-xs-lh: 19px; */
     }
   }
+  @media (min-width:1024px){
+    #root{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+    }
+    .app-div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1400px;
+    }
+  }

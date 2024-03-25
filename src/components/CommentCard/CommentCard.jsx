@@ -18,9 +18,12 @@ function CommentCard(props) {
     setReplyText(e.target.value)
   }
   function handlePostreply(){
-    props.updateComments(replyBoxText,replyBoxTo,replyId);
-    setReplyText('');
-    openReplyBox();
+    if(replyBoxText){
+      props.updateComments(replyBoxText,replyBoxTo,replyId);
+      setReplyText('');
+      openReplyBox();
+    }
+    
   }
   function postReplyReply(text,to){
     props.updateComments(text,to,replyId);

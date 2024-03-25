@@ -17,10 +17,12 @@ function ReplyCard(props) {
   }
 
   function handlePostreply(){
-    props.postReplyReply(replyBoxText,replyTo);
-    console.log(replyTo)
-    setReplyText('')
-    openReplyBox()
+    if(replyBoxText){
+      props.postReplyReply(replyBoxText,replyTo);
+      setReplyText('')
+      openReplyBox()
+    }
+    
   }
 
   return (

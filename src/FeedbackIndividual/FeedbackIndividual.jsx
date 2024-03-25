@@ -67,23 +67,25 @@ function FeedbackIndividual() {
         setCharactersLeft(255-length);
       }
       function handleCommentPost(){
-       
-        setNewComment('');
-        setCharactersLeft(255);
-        let data = JSON.parse(localStorage.getItem('requestData'))
-        const collection = collect(data);
-        const filtered = collection.where('id', parseInt(feedbackId));
-        const updateData = filtered.all()[0];
-        const collection2 = collect(updateData.comments);
-        const max = collection2.max('id');
-        let newCommentt={
-          id: max+1,
-          content: newComment,
-          user:Data.currentUser
+        if(newComment){
+          setNewComment('');
+          setCharactersLeft(255);
+          let data = JSON.parse(localStorage.getItem('requestData'))
+          const collection = collect(data);
+          const filtered = collection.where('id', parseInt(feedbackId));
+          const updateData = filtered.all()[0];
+          const collection2 = collect(updateData.comments);
+          const max = collection2.max('id');
+          let newCommentt={
+            id: max+1,
+            content: newComment,
+            user:Data.currentUser
+          }
+          collection2.all().push(newCommentt);
+          localStorage.setItem('requestData', JSON.stringify(data)); 
+          navigate(`/feedback/${parseInt(feedbackId)}`);
         }
-        collection2.all().push(newCommentt);
-        localStorage.setItem('requestData', JSON.stringify(data)); 
-        navigate(`/feedback/${parseInt(feedbackId)}`);
+        
       }
       function navigateToEdit(){
         navigate(`/feedback/edit/${parseInt(feedbackId)}`);
